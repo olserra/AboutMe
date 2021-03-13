@@ -15,10 +15,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private val myName: MyName = MyName("John Smith")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        binding.myName = myName
 
         binding.doneButton.setOnClickListener {
             addNickname(it)
@@ -34,7 +38,6 @@ class MainActivity : AppCompatActivity() {
             doneButton.visibility = View.GONE
             nicknameText.visibility = View.VISIBLE
         }
-
 
         //Hide the keyboard
         val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

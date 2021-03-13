@@ -3,6 +3,15 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Use a data block to declare variables. -->
+    <data>
+        <!-- Declare a variable by specifying a name and a data type. -->
+        <!-- Use fully qualified name for the type. -->
+        <variable
+            name="myName"
+            type="com.example.android.aboutme.MyName" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +24,7 @@
             style="@style/NameStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/name"
+            android:text="@={myName.name}"
             android:textAlignment="center" />
 
         <!-- Use "@={aboutMe.nickname}" annotation to reference a property -->
@@ -25,6 +34,7 @@
             style="@style/NameStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@={myName.nickname}"
             android:textAlignment="center"
             android:visibility="gone" />
 
@@ -37,6 +47,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/what_is_your_nickname"
             android:inputType="textPersonName"
+            android:text="@={myName.nickname}"
             android:textAlignment="center" />
 
         <Button
@@ -68,7 +79,7 @@
                 android:id="@+id/bio_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lineSpacingMultiplier="1.2"
+                android:lineSpacingMultiplier="@dimen/line_spacing_multiplier"
                 android:text="@string/bio"
                 android:textAppearance="@style/NameStyle" />
 
